@@ -11,7 +11,7 @@ address, fetches the account, decodes the 49 bytes and checks that the value is 
 npm install @inferra-trade/gpu-index @solana/web3.js
 ```
 
-Node 18 or newer. ES module and CommonJS builds, with types for both.
+Node 20 or newer. ES module and CommonJS builds, with types for both.
 
 ## Quick start
 
