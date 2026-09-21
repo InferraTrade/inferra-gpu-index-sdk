@@ -64,7 +64,7 @@
     "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",
     "build": "npm run clean && tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json && node scripts/postbuild.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "npm run build && node --test \"test/*.test.?(m|c)js\"",
+    "test": "npm run build && node --test",
     "prepublishOnly": "npm test"
   },
   "peerDependencies": {

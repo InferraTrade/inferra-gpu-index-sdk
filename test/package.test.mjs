@@ -34,3 +34,10 @@ test('publishing rebuilds and retests first', () => {
   assert.match(pkg.scripts.prepublishOnly, /test/)
   assert.match(pkg.scripts.test, /build/)
 })
+
+// `node --test` with no pattern: the runner's own discovery finds test/*.test.{mjs,cjs} on every
+// supported Node. A quoted glob is expanded by the runner only from Node 22, and on 18 and 20 it is
+// taken literally, which is how the first CI run failed on two of three versions.
+test('the test script relies on the runner\'s discovery, not on a glob', () => {
+  assert.doesNotMatch(pkg.scripts.test, /\*/)
+})
