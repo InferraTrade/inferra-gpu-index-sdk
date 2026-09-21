@@ -1,5 +1,7 @@
 # @inferra-trade/gpu-index
 
+[![CI](https://github.com/InferraTrade/inferra-gpu-index-sdk/actions/workflows/ci.yml/badge.svg)](https://github.com/InferraTrade/inferra-gpu-index-sdk/actions/workflows/ci.yml)
+
 Read the Inferra GPU-hour price index from Solana.
 
 The index publishes what an hour of a given datacenter GPU rents for, as one account per model,
