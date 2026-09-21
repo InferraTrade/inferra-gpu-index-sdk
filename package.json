@@ -1,0 +1,86 @@
+{
+  "name": "@inferra-trade/gpu-index",
+  "version": "1.0.0",
+  "description": "Read the Inferra GPU-hour price index from Solana. Permissionless: no key, no transaction, no account with us.",
+  "keywords": [
+    "solana",
+    "gpu",
+    "price-index",
+    "oracle",
+    "price-feed",
+    "chainlink",
+    "gpu-pricing",
+    "h100",
+    "compute",
+    "benchmark"
+  ],
+  "license": "MIT",
+  "author": "Inferra <hello@inferra.trade>",
+  "homepage": "https://index.inferra.trade/integrate",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InferraTrade/inferra-gpu-index-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/InferraTrade/inferra-gpu-index-sdk/issues"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/cjs/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    },
+    "./codec": {
+      "import": {
+        "types": "./dist/esm/codec.d.ts",
+        "default": "./dist/esm/codec.js"
+      },
+      "require": {
+        "types": "./dist/cjs/codec.d.ts",
+        "default": "./dist/cjs/codec.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",
+    "build": "npm run clean && tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json && node scripts/postbuild.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test \"test/*.test.?(m|c)js\"",
+    "prepublishOnly": "npm test"
+  },
+  "peerDependencies": {
+    "@solana/web3.js": ">=1.90.0 <2"
+  },
+  "peerDependenciesMeta": {
+    "@solana/web3.js": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@solana/web3.js": "^1.98.4",
+    "@types/node": "^22.20.2",
+    "typescript": "^5.4.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
